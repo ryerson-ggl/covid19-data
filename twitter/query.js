@@ -1,6 +1,7 @@
 var myVar = setInterval(TweetsQuery, 1000000)
 function TweetsQuery() {
 var twitter2pg = require('twitter2pg');
+require('dotenv').config();
 
 // (options) Initialize options object
 var options = {

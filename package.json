@@ -1,0 +1,23 @@
+{
+  "name": "covid19-data",
+  "version": "0.0.0",
+  "description": "Data collection for 2019 Corona Virus Disease (COVID-19) pandemic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryerson-ggl/covid19-data.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryerson-ggl/covid19-data/issues"
+  },
+  "homepage": "https://github.com/ryerson-ggl/covid19-data#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "twitter2pg": "^1.1.1"
+  }
+}

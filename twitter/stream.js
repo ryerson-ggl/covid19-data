@@ -1,4 +1,5 @@
 var twitter2pg = require('twitter2pg');
+require('dotenv').config();
 
 // (options) Initialize options object
 var options = {
@@ -35,4 +36,5 @@ stream.on('data', function(data){
 });
 stream.on('error', function(error) {
 	console.error(error.message);
+	process.exit();
 });
