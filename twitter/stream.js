@@ -101,7 +101,7 @@ var stream = twitter2pg(options);
 stream.on('error', function (error) {
 	console.error(error.message);
 	var details = '<b>Error</b><br><br>' + JSON.stringify(error, null, 4);
-	if (use_email) email.send(info_html + '<br>' + details + '<br>', 'ERROR');
+	if (use_email) email.send(info_html + '<br>' + details + '<br><br>', 'ERROR');
 	stream.destroy(() => {
 		process.exit(1);
 	});
@@ -111,7 +111,7 @@ stream.on('error', function (error) {
 function on_exit(code) {
 	var details = `Twitter stream was stopped with exit code ${code}!`;
 	console.log(details);
-	if (use_email) email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br>', 'STOP');
+	if (use_email) email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br><br>', 'STOP');
 	stream.destroy();
 }
 
