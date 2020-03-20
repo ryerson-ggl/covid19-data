@@ -4,6 +4,20 @@ const twitter2pg = require('twitter2pg');
 require('log-timestamp');
 require('dotenv').config();
 
+// Set the following in .env
+/*
+TWITTER_CONSUMER_KEY=
+TWITTER_CONSUMER_SECRET=
+TWITTER_ACCESS_TOKEN_KEY=
+TWITTER_ACCESS_TOKEN_SECRET=
+PGHOST=
+PGPASSWORD=
+COMPUTER_NAME=
+USE_EMAIL=
+EMAIL_FROM=
+EMAIL_TO=
+*/
+
 // *** MAIL SETUP ***
 
 var use_email = Boolean(process.env.USE_EMAIL) || false;
