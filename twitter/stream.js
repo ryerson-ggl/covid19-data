@@ -31,7 +31,8 @@ var reference = `
 <li><a href="https://www.npmjs.com/package/dotenv">dotenv Node.js Package</a></li>
 <li><a href="https://github.com/rrwen/twitter2pg">twitter2pg Node.js Package</a></li>
 </ul><br>
-<b>Twitter RAPI References</b><br>
+<b>Twitter API References</b><br>
+<ul>
 <li><a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter">Stream API</a></li>
 <li><a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters">Stream Paramaters</a></li>
 <li><a href="https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators">Track Operators</a></li>
@@ -79,7 +80,7 @@ options.pg.query = 'INSERT INTO $options.pg.table($options.pg.column) VALUES($1)
 // (info_msg) Create info message object and log info
 console.log('Starting Twitter stream...');
 var info = [
-	['Running on: ', process.env.COMPUTER_NAME],
+	['Running on', process.env.COMPUTER_NAME],
 	['Log email from', process.env.EMAIL_FROM],
 	['Log email to', process.env.EMAIL_TO],
 	['Twitter method', options.twitter.method],
@@ -101,8 +102,24 @@ if (use_email) email.send(info_html, 'START');
 var stream = twitter2pg(options);
 stream.on('error', function (error) {
 	console.error(error.message);
-	email.send(JSON.stringify(error, null, 4), 'ERROR');
+	var details = '<b>Error</b><br><br>' + JSON.stringify(error, null, 4);
+	if (use_email) email.send(info_html + '<br>' + details, 'ERROR');
 	stream.destroy(() => {
 		process.exit(1);
 	});
 });
+
+// (twitter2pg_stream_exit) Exit function
+function on_exit(code) {
+	var details = `<b>Exit</b><br><br>Twitter stream was stopped with exit code ${code}!`;
+	console.log(details);
+	if (use_email) email.send(info_html + '<br>' + details, 'STOP');
+	stream.destroy();
+}
+
+// (twitter2pg_stream_exit_process) Apply exit function to different conditions
+process.on('exit', on_exit);
+process.on('SIGINT', on_exit);
+process.on('SIGUSR1', on_exit);
+process.on('SIGUSR2', on_exit);
+process.on('uncaughtException', on_exit);
