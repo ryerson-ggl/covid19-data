@@ -98,20 +98,20 @@ if (use_email) email.send(info_html, 'START');
 
 // (twitter2pg_stream) Stream tweets into PostgreSQL table
 var stream = twitter2pg(options);
-stream.on('error', function (error) {
-	console.error(error.message);
-	var details = JSON.stringify(error, null, 4).replace();
-	if (use_email) email.send(info_html + '<br><b>Error</b><br><br>' + details + '<br><br>', 'ERROR');
+stream.on('error', async function (err) {
+	console.error(err.message);
+	var details = `${err.message}<br><br>${err.stack}`;
+	if (use_email) await email.send(info_html + '<br><b>Error</b><br><br>' + details + '<br><br>', 'ERROR');
 	stream.destroy(() => {
 		process.exit(1);
 	});
 });
 
 // (twitter2pg_stream_exit) Exit function
-function on_exit(code) {
+async function on_exit(code) {
 	var details = `Twitter stream was stopped with exit code ${code}!`;
 	console.log(details);
-	if (use_email) email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br><br>', 'STOP');
+	if (use_email) await email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br><br>', 'STOP');
 	stream.destroy();
 }
 

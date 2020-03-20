@@ -1,4 +1,4 @@
-const sendmail = require('sendmail')({silent: true});
+const sendmail = require('sendmail')({silent: true, secure: true});
 
 module.exports = options => {
 
