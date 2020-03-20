@@ -74,7 +74,7 @@ options.twitter.params = {
 options.pg.table = 'twitter_stream';
 options.pg.column = 'tweet';
 options.pg.query = 'INSERT INTO $options.pg.table($options.pg.column) VALUES($1);';
-console.log(use_email)
+
 // (info_msg) Create info message object and log info
 console.log('Starting Twitter stream...');
 var info = [
