@@ -10,6 +10,8 @@ The twitter data stream collects real-time tweets based on a set of keywords and
 
 Currently, we are collecting tweets with the [Standard Twitter Filter API](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) based on keywords provided by Shishuo:
 
+* **Start Date**: March 4, 2020
+* **End Date**: Ongoing
 * **Keywords**: coronavirus, covid19, coronavirusoutbreak, 2019ncov, ncov2019, #Coronavirus, #COVID19, #coronavirusoutbreak, #2019nCov, #nCov2019,socialdistancing, social distancing, #socialdistancing
 * **Limitations**
     * 400 keywords
