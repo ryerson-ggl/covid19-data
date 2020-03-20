@@ -101,7 +101,7 @@ var stream = twitter2pg(options);
 stream.on('error', function (error) {
 	console.error(error.message);
 	var details = '<b>Error</b><br><br>' + JSON.stringify(error, null, 4);
-	if (use_email) email.send(info_html + '<br>' + details, 'ERROR');
+	if (use_email) email.send(info_html + '<br>' + details + '<br>', 'ERROR');
 	stream.destroy(() => {
 		process.exit(1);
 	});
