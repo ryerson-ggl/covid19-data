@@ -96,6 +96,12 @@ Run the `covid19_twitter_stream` service we installed from the previous step wit
 bin\nssm start covid19_twitter_stream
 ```
 
+Checking on the service:
+
+```
+bin\nssm status covid19_twitter_stream
+```
+
 If you need to stop this service:
 
 ```
