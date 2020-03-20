@@ -6,7 +6,13 @@ Twitter streaming and REST API data.
 
 ## Twitter Data Stream
 
-The Twitter data stream will stream a set of COVID-19 related keywords into a PostgreSQL database table.
+The Twitter data stream will insert real-time COVID-19 related tweets filtered by keywords into a PostgreSQL database table.
+
+* **Running on**: GGL-WORKSTATION
+* **Database computer**: GGL-SERVER
+* **Keywords**: coronavirus, covid19, coronavirusoutbreak, 2019ncov, ncov2019, #Coronavirus, #COVID19, #coronavirusoutbreak, #2019nCov, #nCov2019,socialdistancing, social distancing, #socialdistancing
+
+Access via TeamViewer and pgadmin4 on the GGL-WORKSTATION.
 
 ### 1. Setting up the Twitter Stream
 
