@@ -70,21 +70,21 @@ For the `Log on` tab:
 
 * Check `Allow service to interact with Desktop`
 
-![Example of Details settings](img/nssm_logon.PNG)
+![Example of Logon settings](img/nssm_login.PNG)
 
 In the `Exit actions` tab, under `Restart`:
 
 * Choose `Restart application`
 * Set the `Delay restart by` to `15000`
 
-![Example of Details settings](img/nssm_exit.PNG)
+![Example of Exit settings](img/nssm_exit.PNG)
 
 Finally, in the `I/O` tab:
 
 * Set `Output (stdout)` and `Output (stderr)` to `twitter/logs/stream.log`
 * Also create the `twitter/logs` folder if it does not exist
 
-![Example of Details settings](img/nssm_io.PNG)
+![Example of I/O settings](img/nssm_io.PNG)
 
 All other settings are left on default.
 
