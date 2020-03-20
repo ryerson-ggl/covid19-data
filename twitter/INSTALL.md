@@ -2,16 +2,18 @@
 
 Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com  
   
-Instructions for installing the Twitter COVID-19 stream as a windows service to collect tweets in a database.
+Instructions for installing the required software to collect Twitter data for the COVID-19 project.
 
-## Overview
+## Twitter Data Stream Service
 
 The Twitter data stream will insert real-time COVID-19 related tweets filtered by keywords into a PostgreSQL database table.
 
 * **Running on**: GGL-WORKSTATION
 * **Database computer**: GGL-SERVER
 
-Access via TeamViewer and pgadmin4 on the GGL-WORKSTATION.
+Access via TeamViewer and pgadmin4 on the GGL-WORKSTATION.  
+  
+To install the Twitter data stream service, follow the instructions below.
 
 ## 1. Setting up the Twitter Stream
 
