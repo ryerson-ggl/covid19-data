@@ -100,8 +100,8 @@ if (use_email) email.send(info_html, 'START');
 var stream = twitter2pg(options);
 stream.on('error', function (error) {
 	console.error(error.message);
-	var details = '<b>Error</b><br><br>' + JSON.stringify(error, null, 4);
-	if (use_email) email.send(info_html + '<br>' + details + '<br><br>', 'ERROR');
+	var details = JSON.stringify(error, null, 4).replace();
+	if (use_email) email.send(info_html + '<br><b>Error</b><br><br>' + details + '<br><br>', 'ERROR');
 	stream.destroy(() => {
 		process.exit(1);
 	});
@@ -116,6 +116,7 @@ function on_exit(code) {
 }
 
 // (twitter2pg_stream_exit_process) Apply exit function to different conditions
+process.on('beforeExit', on_exit);
 process.on('exit', on_exit);
 process.on('SIGINT', on_exit);
 process.on('SIGUSR1', on_exit);
