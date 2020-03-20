@@ -1,6 +1,6 @@
 # covid19-data
 
-Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
+Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com,  Wei Huang huangweibuct@gmail.com
 
 Twitter streaming and REST API data.
 
@@ -13,6 +13,8 @@ The Twitter data stream will insert real-time COVID-19 related tweets filtered b
 * **Keywords**: coronavirus, covid19, coronavirusoutbreak, 2019ncov, ncov2019, #Coronavirus, #COVID19, #coronavirusoutbreak, #2019nCov, #nCov2019,socialdistancing, social distancing, #socialdistancing
 
 Access via TeamViewer and pgadmin4 on the GGL-WORKSTATION.
+
+**Note**: Keywords were manually selected by Shishuo
 
 ### 1. Setting up the Twitter Stream
 
@@ -48,6 +50,8 @@ USE_EMAIL=true
 EMAIL_FROM=test-email@email.com
 EMAIL_TO=your-email@email.com
 ```
+
+The Twitter CONSUMER and ACCESS keys/secret were provided by Wei.
 
 ### 3. Create a Twitter Data Stream Service
   
