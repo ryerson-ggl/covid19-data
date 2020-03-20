@@ -1,3 +1,4 @@
+require('log-timestamp');
 var twitter2pg = require('twitter2pg');
 require('dotenv').config();
 
