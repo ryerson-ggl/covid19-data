@@ -6,6 +6,10 @@ Twitter streaming and REST API data.
 
 ## Twitter Data Stream
 
+The Twitter data stream will stream a set of COVID-19 related keywords into a PostgreSQL database table.
+
+### 1. Setting up the Twitter Stream
+
 To collect streaming data from Twitter, we need to install the following:
 
 1. Install [Node.js](https://nodejs.org/en/)
@@ -19,7 +23,9 @@ To collect streaming data from Twitter, we need to install the following:
 npm install
 ```
 
-**Note**: Ensure you are in the `covid19-data` folder  
+**Note**: Ensure you are in the `covid19-data` folder 
+
+### 2. Set Up the Environment File
   
 After this, create a file called `.env` at the root of the `covid19-data` folder and fill in the following information:
 
@@ -36,6 +42,8 @@ USE_EMAIL=true
 EMAIL_FROM=test-email@email.com
 EMAIL_TO=your-email@email.com
 ```
+
+### 3. Create a Twitter Data Stream Service
   
 Now, install a Windows service with `nssm` called `covid19_twitter_stream` with the interface:
 
@@ -79,3 +87,25 @@ Finally, in the `I/O` tab:
 ![Example of Details settings](img/nssm_io.PNG)
 
 All other settings are left on default.
+
+### 4. Run the Twitter Data Stream Service
+
+Run the `covid19_twitter_stream` service we installed from the previous step with:
+
+```
+bin\nssm start covid19_twitter_stream
+```
+
+If you need to stop this service:
+
+```
+bin\nssm stop covid19_twitter_stream
+```
+
+If you need to make changes to the service:
+
+```
+bin\nssm edit covid19_twitter_stream
+```
+
+A log is created at `twitter/logs/stream.log`.
