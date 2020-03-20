@@ -111,7 +111,7 @@ stream.on('error', function (error) {
 function on_exit(code) {
 	var details = `Twitter stream was stopped with exit code ${code}!`;
 	console.log(details);
-	if (use_email) email.send(info_html + '<br><b>Exit</b><br><br>' + details, 'STOP');
+	if (use_email) email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br>', 'STOP');
 	stream.destroy();
 }
 
