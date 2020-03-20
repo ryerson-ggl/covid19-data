@@ -18,9 +18,7 @@
   "homepage": "https://github.com/ryerson-ggl/covid19-data#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "googleapis": "^48.0.0",
     "log-timestamp": "^0.3.0",
-    "nodemailer": "^6.4.5",
     "sendmail": "^1.6.1",
     "twitter2pg": "^1.1.1"
   }

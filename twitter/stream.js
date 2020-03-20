@@ -58,8 +58,7 @@ var options = {
 // (options_pg_connection) PostgreSQL connection details
 options.pg.connection = {
 	port: 5432,
-	database: 'covid19',
-	user: 'postgres'
+	database: 'covid19'
 };
 
 // *** STREAM TWEETS ***

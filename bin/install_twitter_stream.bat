@@ -1,1 +1,0 @@
-nssm install covid19_twitter_stream
