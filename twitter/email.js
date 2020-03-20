@@ -1,4 +1,3 @@
-const nodemailer = require('nodemailer');
 const sendmail = require('sendmail')({silent: true});
 
 module.exports = options => {

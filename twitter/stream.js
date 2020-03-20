@@ -26,7 +26,6 @@ var use_email = Boolean(process.env.USE_EMAIL) || false;
 var reference = `
 <b>Package References</b>
 <ul>
-<li><a href="https://www.npmjs.com/package/nodemailer">nodemailer Node.js Package</a></li>
 <li><a href="https://www.npmjs.com/package/sendmail">sendmail Node.js Package</a></li>
 <li><a href="https://www.npmjs.com/package/dotenv">dotenv Node.js Package</a></li>
 <li><a href="https://github.com/rrwen/twitter2pg">twitter2pg Node.js Package</a></li>
