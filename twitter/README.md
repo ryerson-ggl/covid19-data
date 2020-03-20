@@ -73,21 +73,34 @@ Next, set the following settings in the `Details` tab:
 
 * Change `Display Name` to `covid19_twitter_stream`
 * Change `Description` to be `Twitter stream data into PostgreSQL database for COVID-19 tweets`
+* Set `Startup type` to `Automatic (Delayed Start)`
 
 ![Example of Details settings](img/nssm_details.PNG)
 
 For the `Log on` tab:
 
-* Check `Allow service to interact with Desktop`
+* Select the `This account` bullet
+* Set `This account` to `GGL\ggladmin`
+* Input the `password` twice in the two boxes
 
 ![Example of Logon settings](img/nssm_login.PNG)
 
 In the `Exit actions` tab, under `Restart`:
 
 * Choose `Restart application`
+* Set the `Delay restart if appication runs for less than` to `15000`
 * Set the `Delay restart by` to `15000`
 
 ![Example of Exit settings](img/nssm_exit.PNG)
+
+For the `Shutdown` tab:
+
+* Set `Generate Ctrl+c` to `30000`
+* Set `WM_CLOSE to windows` to `30000`
+* Set `WN_QUIT to threads` to `30000`
+* Keep `Terminate process` and `Kill process tree` checked
+
+![Example of Shutdown settings](img/nssm_shutdown.PNG)
 
 Finally, in the `I/O` tab:
 

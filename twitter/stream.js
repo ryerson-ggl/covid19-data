@@ -20,7 +20,7 @@ EMAIL_TO=
 
 // *** MAIL SETUP ***
 
-var use_email = Boolean(process.env.USE_EMAIL) || false;
+var use_email = (process.env.USE_EMAIL.toLowerCase().trim() == 'true') || false;
 
 // (mail_reference) Reference text to help identify errors
 var reference = `
@@ -74,7 +74,7 @@ options.twitter.params = {
 options.pg.table = 'twitter_stream';
 options.pg.column = 'tweet';
 options.pg.query = 'INSERT INTO $options.pg.table($options.pg.column) VALUES($1);';
-
+console.log(use_email)
 // (info_msg) Create info message object and log info
 console.log('Starting Twitter stream...');
 var info = [
@@ -94,29 +94,36 @@ info.forEach(msg => console.log(`${msg[0]}: ${msg[1]}`));
 
 // (twitter2pg_stream_mail) Send mail that stream has started
 var info_html = '<b>Twitter Stream Parameters</b><br><ul>' + info.map(msg => `<li><b>${msg[0]}</b>: ${msg[1]}</li>`).join('<br>') + '</ul>';
-if (use_email) email.send(info_html, 'START');
+if (use_email) {
+	email.send(info_html, 'START');
+}
 
 // (twitter2pg_stream) Stream tweets into PostgreSQL table
 var stream = twitter2pg(options);
-stream.on('error', async function (err) {
+stream.on('error', function (err) {
 	console.error(err.message);
 	var details = `${err.message}<br><br>${err.stack}`;
-	if (use_email) await email.send(info_html + '<br><b>Error</b><br><br>' + details + '<br><br>', 'ERROR');
+	if (use_email) {
+		email.send(info_html + '<br><b>Error</b><br><br>' + details + '<br><br>', 'ERROR');
+	}
 	stream.destroy(() => {
 		process.exit(1);
 	});
 });
 
 // (twitter2pg_stream_exit) Exit function
-async function on_exit(code) {
+function on_exit(code) {
 	var details = `Twitter stream was stopped with exit code ${code}!`;
 	console.log(details);
-	if (use_email) await email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br><br>', 'STOP');
-	stream.destroy();
+	if (use_email) {
+		email.send(info_html + '<br><b>Exit</b><br><br>' + details + '<br><br>', 'STOP');
+	}
+	stream.destroy(() => {
+		process.exit(code);
+	});
 }
 
 // (twitter2pg_stream_exit_process) Apply exit function to different conditions
-process.on('beforeExit', on_exit);
 process.on('exit', on_exit);
 process.on('SIGINT', on_exit);
 process.on('SIGUSR1', on_exit);
