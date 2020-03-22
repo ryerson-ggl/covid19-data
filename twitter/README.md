@@ -24,5 +24,8 @@ To run the data collection service, see [INSTALL.md](INSTALL.md).
 
 ### See Also
 
-* [Stream Parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters): details on streaming parameters
-* [Standard Keyword Operators](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators): details on filter behaviour of keyword queries, useful for refining `track` parameter
+* [API Stream Parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters): details on streaming parameters
+* [API Keyword Operators](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators): details on filter behaviour of standard keyword queries, useful for refining `track` parameter
+* [Tweet Data Dictionary](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object): descriptions of returned tweet object fields
+* [User Data Dictionary](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object): descriptions of returned user object fields
+* [Geo Data Dictionary](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/geo-objects): descriptions of returned geo object fields

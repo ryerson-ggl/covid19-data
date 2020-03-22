@@ -71,7 +71,7 @@ options.twitter.params = {
 };
 
 // (options_pg) PostgreSQL options
-options.pg.table = 'twitter_stream';
+options.pg.table = 'twitter_stream_raw';
 options.pg.column = 'tweet';
 options.pg.query = 'INSERT INTO $options.pg.table($options.pg.column) VALUES($1);';
 

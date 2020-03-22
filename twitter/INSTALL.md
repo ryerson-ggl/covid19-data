@@ -23,8 +23,8 @@ To collect streaming data from Twitter, we need to install the following:
 2. Install the [PostgreSQL Database](https://www.postgresql.org/)
 3. Install the required `node` packages with `npm`
 4. Create PostgreSQL database called `covid19`
-5. Create a table in the database called `twitter_stream`
-6. Create a column in the `twitter_stream` table called `tweet` with type `jsonb`
+5. Create a table in the database called `twitter_stream_raw`
+6. Create a column in the `twitter_stream_raw` table called `tweet` with type `jsonb`
 
 ```
 npm install
