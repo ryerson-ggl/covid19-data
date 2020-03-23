@@ -137,3 +137,15 @@ bin\nssm edit covid19_twitter_stream
 ```
 
 A log is created at `twitter/logs/stream.log`.
+
+### 5. Create User Views from twiter_stream_raw
+
+The `twitter_stream_raw` table contains a mix of tweet JSON objects and any message objects returned from the Twitter streaming API.  
+  
+This means that the table needs to be cleaned into a tabular format for any real research or development use.  
+  
+A set of SQL files for database views are available to create more clean versions of the `twitter_stream_raw` table, which can be run in `psql` or through the [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html):
+
+* [twitter_stream.sql](views/twitter_stream.sql): view of useful fields from as columns in tabular format
+
+These views are kept updated as the stream adds in new data, and provides you with the latest up-to-date at the time you run a query against these views.
