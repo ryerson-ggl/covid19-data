@@ -23,8 +23,7 @@ To collect streaming data from Twitter, we need to install the following:
 2. Install the [PostgreSQL Database](https://www.postgresql.org/)
 3. Install the required `node` packages with `npm`
 4. Create PostgreSQL database called `covid19`
-5. Create a table in the database called `twitter_stream_raw`
-6. Create a column in the `twitter_stream_raw` table called `tweet` with type `jsonb`
+5. Create a table in the database called `twitter_stream_raw` using the [twitter_stream_raw.sql](tables/twitter_stream_raw.sql) with [psql](https://www.postgresql.org/docs/current/app-psql.html) or [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html)
 
 ```
 npm install
@@ -45,9 +44,6 @@ PGHOST=localhost
 PGUSER=postgres
 PGPASSWORD=***
 COMPUTER_NAME=REMOTE-COMPUTER-NAME
-USE_EMAIL=true
-EMAIL_FROM=test-email@email.com
-EMAIL_TO=your-email@email.com
 ```
 
 The Twitter CONSUMER and ACCESS keys/secret were provided by Wei.
@@ -144,8 +140,8 @@ The `twitter_stream_raw` table contains a mix of tweet JSON objects and any mess
   
 This means that the table needs to be cleaned into a tabular format for any real research or development use.  
   
-A set of SQL files for database views are available to create more clean versions of the `twitter_stream_raw` table, which can be run in `psql` or through the [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html):
+A set of SQL files for database views are available to create more clean versions of the `twitter_stream_raw` table, which can be run in [psql](https://www.postgresql.org/docs/current/app-psql.html) or through the [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html):
 
-* [twitter_stream.sql](views/twitter_stream.sql): view of useful fields from as columns in tabular format
+* [twitter_stream.sql](views/twitter_stream.sql): view of only tweets and retweents from `twitter_stream_raw`
 
 These views are kept updated as the stream adds in new data, and provides you with the latest up-to-date at the time you run a query against these views.
