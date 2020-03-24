@@ -4,9 +4,9 @@ Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang hua
 
 Data access instructions for the COVID-19 project.
 
-## PostgreSQL Database
+## COVID19 Database
 
-We have a `covid19` database on our server's that can be connected to remotely if you have the following connection information:
+We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our server's that can be connected to remotely if you have the following connection information:
 
 * **Host**: ip address of the database server
 * **Port**: port of the database server
