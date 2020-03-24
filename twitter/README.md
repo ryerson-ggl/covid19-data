@@ -23,7 +23,7 @@ We are collecting tweets with the [Standard Twitter Filter API](https://develope
     * 1 filter rule on one allowed connection
     * Disconnection required to adjust rule
 
-To run the data collection service, see [INSTALL.md](INSTALL.md).
+To run the data collection service, see instructions for installing the [Twitter Data Stream Service](INSTALL.md$twitter-data-stream-service).
 
 ### See Also
 
