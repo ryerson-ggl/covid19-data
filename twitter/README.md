@@ -6,9 +6,12 @@ Twitter streaming and REST API data collection for the COVID-19 project.
 
 ## Twitter Data Stream
 
+* [Data Access](ACCESS.md)
+* [Data Dictionary](dictionary.csv)
+
 The twitter data stream collects real-time tweets based on a set of keywords and stores them into a PostgreSQL database.
 
-Currently, we are collecting tweets with the [Standard Twitter Filter API](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) based on keywords provided by Shishuo:
+We are collecting tweets with the [Standard Twitter Filter API](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) based on keywords provided by Shishuo:
 
 * **Start Date**: March 4, 2020
 * **End Date**: Ongoing
