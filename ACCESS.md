@@ -16,7 +16,7 @@ We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our se
 
 Most of our data will be updated and stored here for easy and secure access.  
   
-Contact Richard Wen rrwen.dev@gmail.com to get these details.
+:email: Contact Richard Wen rrwen.dev@gmail.com to get these details.
 
 ## pgAdmin4 PostgreSQL Interface
 
@@ -26,11 +26,12 @@ The easiest way to experiment with the COVID-19 data is to use the [Query Tool](
 
 We have a self-hosted [pgAdmin4](https://www.pgadmin.org/) GUI available at:  
   
-[geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4) 
+:link: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4) 
+  
+:email: Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
 
-To access our pgAdmin4 GUI, you will need to:
+Once you have your email and password setup:
 
-1. Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
-2. Once you have your email and password setup, create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
-3. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
-4. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
+1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
+2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
+3. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
