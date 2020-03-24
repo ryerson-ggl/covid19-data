@@ -20,9 +20,9 @@ Contact Richard Wen rrwen.dev@gmail.com to get these details.
 
 ## pgAdmin4 PostgreSQL Interface
 
-![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
+The easiest way to experiment with the COVID-19 data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/).
 
-The easiest way to experiment with the COVID-19 data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4]() 
+![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
 We have a self-hosted [pgAdmin4](https://www.pgadmin.org/) GUI available at:  
   
