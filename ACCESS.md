@@ -22,8 +22,15 @@ Contact Richard Wen rrwen.dev@gmail.com to get these details.
 
 ![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
-The easiest way to experiment with the COVID-19 data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) through our self-hosted [pgAdmin4](https://www.pgadmin.org/) GUI at:  
+The easiest way to experiment with the COVID-19 data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4]() 
+
+We have a self-hosted [pgAdmin4](https://www.pgadmin.org/) GUI available at:  
   
 [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4) 
-  
-You will need to contact Richard Wen rrwen.dev@gmail.com to setup your account for access.
+
+To access our pgAdmin4 GUI, you will need to:
+
+1. Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
+2. Once you have your email and password setup, create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
+3. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
+4. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
