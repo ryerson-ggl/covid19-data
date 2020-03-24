@@ -27,11 +27,11 @@ The easiest way to experiment with the COVID-19 data is to use the [Query Tool](
 We have a self-hosted [pgAdmin4](https://www.pgadmin.org/) GUI available at:  
   
 :link: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4) 
-  
-:email: Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
 
 Once you have your email and password setup:
 
 1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
 2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
 3. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
+
+:email: Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
