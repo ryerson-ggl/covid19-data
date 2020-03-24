@@ -142,6 +142,6 @@ This means that the table needs to be cleaned into a tabular format for any real
   
 A set of SQL files for database views are available to create more clean versions of the `twitter_stream_raw` table, which can be run in [psql](https://www.postgresql.org/docs/current/app-psql.html) or through the [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html):
 
-* [twitter_stream.sql](views/twitter_stream.sql): view of only tweets and retweents from `twitter_stream_raw`
+* [twitter_stream.sql](views/twitter_stream.sql): view of only tweets and retweets from `twitter_stream_raw`
 
 These views are kept updated as the stream adds in new data, and provides you with the latest up-to-date at the time you run a query against these views.
