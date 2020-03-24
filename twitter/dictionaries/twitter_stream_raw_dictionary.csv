@@ -1,5 +1,5 @@
 Column,Type,Description
-tweet,jsonb,Original tweet in JSON format from the Twitter Stream API
+tweet,jsonb,"Original tweet in JSON format from the Twitter Stream API, all other fields are pre-processed based on this (in most cases, you can omit this column from your queries for better performance)"
 tweet_id,text,Unique identifier for the tweet
 tweet_timestamp,timestamp with time zone,Time and date that the tweet was postedin postgres timestamp format
 tweet_dayofweek,smallint,Day of week from Monday (1) to Sunday (7) that the tweet was posted
