@@ -1,4 +1,4 @@
-# covid19-data
+# covid19-data: Twitter Data Install
 
 Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com  
   
