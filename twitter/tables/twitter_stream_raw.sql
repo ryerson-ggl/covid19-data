@@ -25,9 +25,13 @@ RETURNS smallint AS 'SELECT EXTRACT(SECOND FROM $1::timestamptz)::smallint' LANG
 CREATE OR REPLACE FUNCTION get_tweet_geom(text)
 RETURNS geometry AS 'SELECT ST_GeomFromGeoJSON($1)::geometry' LANGUAGE SQL immutable RETURNS NULL ON NULL INPUT;
 
+CREATE OR REPLACE FUNCTION get_tweet_tsvector(text)
+RETURNS tsvector AS 'SELECT to_tsvector(''english'', $1)' LANGUAGE SQL immutable RETURNS NULL ON NULL INPUT;
+
 CREATE TABLE twitter_stream_raw (
+	row_id SERIAL PRIMARY KEY,
 	tweet jsonb,
-	tweet_id text GENERATED ALWAYS AS ((tweet ->> 'id_str')::text) STORED,
+	tweet_id numeric GENERATED ALWAYS AS ((tweet ->> 'id_str')::numeric) STORED,
 	tweet_timestamp timestamptz GENERATED ALWAYS AS (get_tweet_timestamp((tweet ->> 'created_at')::text)) STORED,
 	tweet_dayofweek smallint GENERATED ALWAYS AS (get_tweet_dayofweek((tweet ->> 'created_at')::text)) STORED,
 	tweet_day smallint GENERATED ALWAYS AS (get_tweet_day((tweet ->> 'created_at')::text)) STORED,
@@ -36,6 +40,7 @@ CREATE TABLE twitter_stream_raw (
 	tweet_hour smallint GENERATED ALWAYS AS (get_tweet_hour((tweet ->> 'created_at')::text)) STORED,
 	tweet_minute smallint GENERATED ALWAYS AS (get_tweet_minute((tweet ->> 'created_at')::text)) STORED,
 	tweet_second smallint GENERATED ALWAYS AS (get_tweet_second((tweet ->> 'created_at')::text)) STORED,
+	is_tweet boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'id')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
 	is_retweet boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'retweeted_status')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
 	has_coordinates boolean GENERATED ALWAYS AS ((CASE WHEN (tweet -> 'coordinates' ->> 'coordinates')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
 	has_place boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'place')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
@@ -43,6 +48,12 @@ CREATE TABLE twitter_stream_raw (
 		(tweet -> 'extended_tweet' ->> 'full_text')::text
 	 ELSE
 		(tweet ->> 'text')::text
+	 END
+	) STORED,
+	tweet_text_tsvector tsvector GENERATED ALWAYS AS (CASE WHEN tweet -> 'extended_tweet' ->> 'full_text' IS NOT NULL THEN
+		get_tweet_tsvector((tweet -> 'extended_tweet' ->> 'full_text')::text)
+	 ELSE
+		get_tweet_tsvector((tweet ->> 'text')::text)
 	 END
 	) STORED,
 	tweet_language varchar(5) GENERATED ALWAYS AS ((tweet ->> 'lang')::text) STORED,
@@ -75,7 +86,7 @@ CREATE TABLE twitter_stream_raw (
 	 	null
 	 END
 	) STORED,
-	user_id text GENERATED ALWAYS AS ((tweet -> 'user' ->> 'id_str')::text) STORED,
+	user_id numeric GENERATED ALWAYS AS ((tweet -> 'user' ->> 'id_str')::numeric) STORED,
 	user_create_timestamp timestamptz GENERATED ALWAYS AS (get_tweet_timestamp((tweet -> 'user' ->> 'created_at')::text)) STORED,
 	user_is_verified boolean GENERATED ALWAYS AS ((tweet -> 'user' ->> 'verified')::boolean) STORED,
 	user_has_place boolean GENERATED ALWAYS AS ((CASE WHEN tweet -> 'user' ->> 'location' is NOT NULL THEN true ELSE false END)::boolean) STORED,
@@ -84,6 +95,30 @@ CREATE TABLE twitter_stream_raw (
 	user_friends integer GENERATED ALWAYS AS ((tweet -> 'user' ->> 'friends_count')::integer) STORED,
 	user_tweets integer GENERATED ALWAYS AS ((tweet -> 'user' ->> 'statuses_count')::integer) STORED,
 	user_place text GENERATED ALWAYS AS ((tweet -> 'user' ->> 'location')::text) STORED,
-	retweet_id text GENERATED ALWAYS AS ((tweet -> 'retweeted_status' ->> 'id_str')::text) STORED,
-	retweet_user_id text GENERATED ALWAYS AS ((tweet -> 'retweeted_status' -> 'user' ->> 'id_str')::text) STORED
+	retweet_id numeric GENERATED ALWAYS AS ((tweet -> 'retweeted_status' ->> 'id_str')::numeric) STORED,
+	retweet_user_id numeric GENERATED ALWAYS AS ((tweet -> 'retweeted_status' -> 'user' ->> 'id_str')::numeric) STORED
 );
+
+CREATE INDEX tweet_id_index ON twitter_stream_raw (tweet_id);
+CREATE INDEX tweet_timestamp_index ON twitter_stream_raw (tweet_timestamp);
+CREATE INDEX tweet_dayofweek_index ON twitter_stream_raw (tweet_dayofweek);
+CREATE INDEX tweet_language_index ON twitter_stream_raw (tweet_language);
+CREATE INDEX tweet_country_code_index ON twitter_stream_raw (tweet_country_code);
+CREATE INDEX tweets_favourites_index ON twitter_stream_raw (tweet_favourites);
+CREATE INDEX tweet_retweets_index ON twitter_stream_raw (tweet_retweets);
+CREATE INDEX tweet_text_tsvector_index ON twitter_stream_raw USING GIN(tweet_text_tsvector);
+CREATE INDEX tweet_place_type_index ON twitter_stream_raw(tweet_place_type);
+CREATE INDEX tweet_has_coordinates_index ON twitter_stream_raw (has_coordinates) WHERE has_coordinates;
+CREATE INDEX tweet_is_tweet_index ON twitter_stream_raw (is_tweet) WHERE is_tweet;
+CREATE INDEX tweet_is_retweet_index ON twitter_stream_raw (is_retweet) WHERE is_retweet;
+CREATE INDEX tweet_has_place_index ON twitter_stream_raw (has_place) WHERE has_place;
+CREATE INDEX tweet_geometry_index ON twitter_stream_raw USING GIST(tweet_geometry);
+CREATE INDEX tweet_place_geometry_index ON twitter_stream_raw USING GIST(tweet_place_geometry);
+
+CREATE INDEX user_id_index ON twitter_stream_raw (user_id);
+CREATE INDEX user_is_verified_index ON twitter_stream_raw (user_is_verified) WHERE user_is_verified;
+CREATE INDEX user_create_timestamp ON twitter_stream_raw (user_create_timestamp);
+CREATE INDEX user_has_place_index ON twitter_stream_raw (user_has_place) WHERE user_has_place;
+CREATE INDEX user_friends_index ON twitter_stream_raw (user_friends);
+CREATE INDEX user_followers_index ON twitter_stream_raw (user_followers);
+CREATE INDEX user_tweets_index ON twitter_stream_raw (user_tweets);

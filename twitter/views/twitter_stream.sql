@@ -5,5 +5,5 @@ SELECT
 	*
 FROM 
 	twitter_stream_raw
-WHERE tweet_id IS NOT NULL
+WHERE is_tweet
 );

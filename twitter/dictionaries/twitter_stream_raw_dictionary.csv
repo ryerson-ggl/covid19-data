@@ -1,46 +1,49 @@
-Column,Type,Description
-tweet,jsonb,"Original tweet in JSON format from the Twitter Stream API, all other fields are pre-processed based on this (in most cases, you can omit this column from your queries for better performance)"
-tweet_id,text,Unique identifier for the tweet
-tweet_timestamp,timestamp with time zone,Time and date that the tweet was postedin postgres timestamp format
-tweet_dayofweek,smallint,Day of week from Monday (1) to Sunday (7) that the tweet was posted
-tweet_day,smallint,Day of the month that the tweet was posted
-tweet_month,smallint,Month that the tweet was posted
-tweet_year,smallint,Year that the tweet was posted
-tweet_hour,smallint,Hour that the tweet was posted
-tweet_minute,smallint,Minute that the tweet was posted
-tweet_second,smallint,Second that the tweet was posted
-is_retweet,boolean,Whether the tweet is a retweet or not
-has_coordinates,boolean,Whether the tweet is geolocated with coordinates or not
-has_place,boolean,Whether tweet references an approximate place (given by a bounding box) or not
-tweet_text,text,Text content of the tweet
-tweet_language,character varying,Language that the tweet was written in
-tweet_favourites,integer,Number of times the tweet was favourited
-tweet_retweets,integer,Number of times the tweet was retweeted
-tweet_quotes,integer,Number of times the tweet was quoted
-tweet_country,text,"The country that the tweet is associated with, only if there is a tweet place"
-tweet_country_code,character varying,The short form country code for tweet_country
-tweet_place,text,The place name that the tweet is associated with
-tweet_place_type,text,"The type of the tweet_place such as country, city, admin, etc"
-tweet_place_01_longitude,numeric,The top left corner longitude coordinate of the bounding box representing the tweet_place
-tweet_place_01_latitude,numeric,The top left corner latitude coordinate of the bounding box representing the tweet_place
-tweet_place_02_longitude,numeric,The top right corner longitude coordinate of the bounding box representing the tweet_place
-tweet_place_02_latitude,numeric,The top right corner latitude coordinate of the bounding box representing the tweet_place
-tweet_place_03_longitude,numeric,The bottom right corner longitude coordinate of the bounding box representing the tweet_place
-tweet_place_03_latitude,numeric,The bottom right corner latitude coordinate of the bounding box representing the tweet_place
-tweet_place_04_longitude,numeric,The bottom left corner longitude coordinate of the bounding box representing the tweet_place
-tweet_place_04_latitude,numeric,The bottom left corner latitude coordinate of the bounding box representing the tweet_place
-tweet_place_geometry,geometry,The postgis geometry object for the tweet_place
-tweet_longitude,numeric,The longitude coordinate of the tweet if available
-tweet_latitude,numeric,The latitude coordinate of the tweet if available
-tweet_geometry,geometry,The postgis geometry object for the tweet coordinates if available
-user_id,text,Unique identifier for the user that posted the tweet
-user_create_timestamp,timestamp with time zone,Time and date that the user posting the tweet was created in postgres timestamp format
-user_is_verified,boolean,Whether the user posting the tweet is verified or not
-user_has_place,boolean,Whether user has included a place in their profile
-user_favourites,integer,Number of times the user has favourited tweets on Twitter
-user_followers,integer,Number of Twitter followers that the user has
-user_friends,integer,Number of Twitter friends that the user has
-user_tweets,integer,Number of times that the user has tweeted
-user_place,text,"The place name, which is entered manually by the user and may not actually represent an existing place"
-retweet_id,text,Unique identifier for original tweet
-retweet_user_id,text,Unique identifier for the user that posted the original tweet
+Column,Type,Index,Description
+row_id,primary key,BTREE,Unique identifier for the row
+tweet,jsonb,,"Original tweet in JSON format from the Twitter Stream API, all other fields are pre-processed based on this (in most cases, you can omit this column from your queries for better performance)"
+tweet_id,numeric,,Unique identifier for the tweet
+tweet_timestamp,timestamp with time zone,BTREE,Time and date that the tweet was postedin postgres timestamp format
+tweet_dayofweek,smallint,BTREE,Day of week from Monday (1) to Sunday (7) that the tweet was posted
+tweet_day,smallint,,Day of the month that the tweet was posted
+tweet_month,smallint,,Month that the tweet was posted
+tweet_year,smallint,,Year that the tweet was posted
+tweet_hour,smallint,,Hour that the tweet was posted
+tweet_minute,smallint,,Minute that the tweet was posted
+tweet_second,smallint,,Second that the tweet was posted
+is_tweet,boolean,PARTIAL BTREE,Whether the row contains a tweet or not
+is_retweet,boolean,PARTIAL BTREE,Whether the row is a retweet or not
+has_coordinates,boolean,PARTIAL BTREE,Whether the tweet is geolocated with coordinates or not
+has_place,boolean,,Whether tweet references an approximate place (given by a bounding box) or not
+tweet_text,text,,Text content of the tweet
+tweet_text_tsvector,tsvector,GIN,Full text search optimized column for tweet_text in the english language
+tweet_language,character varying,BTREE,Language that the tweet was written in
+tweet_favourites,integer,BTREE,Number of times the tweet was favourited
+tweet_retweets,integer,BTREE,Number of times the tweet was retweeted
+tweet_quotes,integer,,Number of times the tweet was quoted
+tweet_country,text,,"The country that the tweet is associated with, only if there is a tweet place"
+tweet_country_code,character varying,BTREE,The short form country code for tweet_country
+tweet_place,text,,The place name that the tweet is associated with
+tweet_place_type,text,BTREE,"The type of the tweet_place such as country, city, admin, etc"
+tweet_place_01_longitude,numeric,,The top left corner longitude coordinate of the bounding box representing the tweet_place
+tweet_place_01_latitude,numeric,,The top left corner latitude coordinate of the bounding box representing the tweet_place
+tweet_place_02_longitude,numeric,,The top right corner longitude coordinate of the bounding box representing the tweet_place
+tweet_place_02_latitude,numeric,,The top right corner latitude coordinate of the bounding box representing the tweet_place
+tweet_place_03_longitude,numeric,,The bottom right corner longitude coordinate of the bounding box representing the tweet_place
+tweet_place_03_latitude,numeric,,The bottom right corner latitude coordinate of the bounding box representing the tweet_place
+tweet_place_04_longitude,numeric,,The bottom left corner longitude coordinate of the bounding box representing the tweet_place
+tweet_place_04_latitude,numeric,,The bottom left corner latitude coordinate of the bounding box representing the tweet_place
+tweet_place_geometry,geometry,GIST,The postgis geometry object for the tweet_place
+tweet_longitude,numeric,,The longitude coordinate of the tweet if available
+tweet_latitude,numeric,,The latitude coordinate of the tweet if available
+tweet_geometry,geometry,GIST,The postgis geometry object for the tweet coordinates if available
+user_id,numeric,BTREE,Unique identifier for the user that posted the tweet
+user_create_timestamp,timestamp with time zone,BTREE,Time and date that the user posting the tweet was created in postgres timestamp format
+user_is_verified,boolean,PARTIAL BTREE,Whether the user posting the tweet is verified or not
+user_has_place,boolean,PARTIAL BTREE,Whether user has included a place in their profile
+user_favourites,integer,,Number of times the user has favourited tweets on Twitter
+user_followers,integer,BTREE,Number of Twitter followers that the user has
+user_friends,integer,BTREE,Number of Twitter friends that the user has
+user_tweets,integer,BTREE,Number of times that the user has tweeted
+user_place,text,,"The place name, which is entered manually by the user and may not actually represent an existing place"
+retweet_id,numeric,,Unique identifier for original tweet
+retweet_user_id,numeric,,Unique identifier for the user that posted the original tweet
