@@ -6,8 +6,8 @@ Twitter streaming and REST API data collection for the COVID-19 project.
 
 ## Twitter Data Stream
 
-* :notebook_with_decorative_cover: [Data Dictionary](dictionaries/twitter_stream_raw_dictionary.csv)
-* :wrench: [Stream Setup](SETUP.md#twitter-data-stream-service)
+* :notebook_with_decorative_cover: [Dictionary](dictionaries/twitter_stream_raw_dictionary.csv)
+* :wrench: [Setup](SETUP.md#twitter-data-stream-service)
 
 The twitter data stream collects real-time tweets based on a set of keywords and stores them into a PostgreSQL database.
 
