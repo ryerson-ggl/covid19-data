@@ -6,9 +6,7 @@ Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
 
 ## Data Access
 
-Our data is stored on our `covid19` database remotely in our lab's server.
-
-To gain access, please contact Richard Wen rrwen.dev@gmail.com for connection details:
+Data can be accessed via our lab's `covid19` database given the connection information: 
 
 * `Host`
 * `Port`
@@ -16,7 +14,7 @@ To gain access, please contact Richard Wen rrwen.dev@gmail.com for connection de
 * `User`
 * `Password`
 
-More details [here](ACCESS.md#covid19-database).
+Get the database connection information [here](ACCESS.md#covid19-database).
 
 ## Available Datasets
 
