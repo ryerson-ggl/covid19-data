@@ -6,7 +6,7 @@ Data access instructions for the COVID-19 project.
 
 ## COVID19 Database
 
-We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our server's that can be connected to remotely if you have the following connection information:
+We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our server that can be connected to remotely if you have the following connection details:
 
 * **Host**: ip address of the database server
 * **Port**: port of the database server
@@ -14,27 +14,24 @@ We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our se
 * **User**: name of the user with access the database
 * **Password**: password for the user
 
-Most of our data will be updated and stored here for easy and secure access.  
-  
-:email: Contact Richard Wen rrwen.dev@gmail.com to get these details.
+:email: Contact Richard Wen rrwen.dev@gmail.com for connection details.
 
 ## pgAdmin4
 
-The easiest way to experiment with the COVID-19 data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/).
+* :computer: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4)
+* :email: Contact Richard Wen rrwen.dev@gmail.com for account setup
+
+The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted GUI [here](https://geocolab.ryerson.ca/db/pgadmin4).
 
 ![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
-We have a self-hosted [pgAdmin4](https://www.pgadmin.org/) GUI available at:  
-  
-:link: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4) 
+Please contact Richard Wen rrwen.dev@gmail.com to setup your account for access.
 
-Once you have your email and password setup:
+Once you have your email and password setup, you can experiment with the [Available data](../README.md#available-data):
 
 1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
 2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
 3. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
-
-:email: Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
 
 ## Programming Languages
 
