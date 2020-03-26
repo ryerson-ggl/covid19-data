@@ -18,7 +18,7 @@ Most of our data will be updated and stored here for easy and secure access.
   
 :email: Contact Richard Wen rrwen.dev@gmail.com to get these details.
 
-## pgAdmin4 PostgreSQL Interface
+## pgAdmin4
 
 The easiest way to experiment with the COVID-19 data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/).
 
@@ -35,3 +35,10 @@ Once you have your email and password setup:
 3. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
 
 :email: Contact Richard Wen rrwen.dev@gmail.com to setup your account for access
+
+## Programming Languages
+
+Programming languages have their own interface that allow you to connect to a [PostgreSQL](https://www.postgresql.org/) database using either a package or a library:
+
+* **Python**: [pandas Library](https://pandas.pydata.org/docs/) using [read_sql](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql.html?highlight=read#pandas.read_sql)
+* **R**: [RPostgres Package](https://rpostgres.r-dbi.org/) using [dbConnect](https://rpostgres.r-dbi.org/reference/dbconnect-pqdriver-method) and [dbSendQuery](https://rpostgres.r-dbi.org/reference/postgres-query.html)
