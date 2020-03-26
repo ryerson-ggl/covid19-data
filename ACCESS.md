@@ -14,12 +14,11 @@ We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our se
 * **User**: name of the user with access the database
 * **Password**: password for the user
 
-:email: Contact Richard Wen rrwen.dev@gmail.com for connection details.
+:email: Please contact Richard Wen rrwen.dev@gmail.com for connection details.
 
 ## pgAdmin4
 
 * :computer: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4)
-* :email: Contact Richard Wen rrwen.dev@gmail.com for account setup
 
 The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted GUI [here](https://geocolab.ryerson.ca/db/pgadmin4).
 
@@ -27,11 +26,13 @@ The easiest way to experiment with the data is to use the [Query Tool](https://w
 
 Please contact Richard Wen rrwen.dev@gmail.com to setup your account for access.
 
-Once you have your email and password setup, you can experiment with the [Available data](../README.md#available-data):
+Using an email and password setup, you can experiment with the [Available data](../README.md#available-data):
 
 1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
 2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
 3. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
+
+* :email: Please contact Richard Wen rrwen.dev@gmail.com for account setup.
 
 ## Programming Languages
 
