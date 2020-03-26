@@ -16,6 +16,8 @@ Data can be accessed via our lab's `covid19` database given the connection infor
 
 Get the database connection information [here](ACCESS.md#covid19-database).
 
+For some datasets, files are also available in which links are made available for download.
+
 ## Available Datasets
 
 A variety of datasets collected and curated by our team are available for COVID-19 project. 
