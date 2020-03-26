@@ -22,11 +22,12 @@ More details [here](ACCESS.md#covid19-database).
 
 ### Twitter Data Stream
 
-Real-time tweets beginning on March 4, 2020 using COVID-19 keywords from Shishuo:
+Real-time tweets streamed from March 4, 2020 using Shishuo's COVID-19 keywords.
 
-* :notebook_with_decorative_cover: [Dictionary](twitter/dictionaries/twitter_stream_raw_dictionary.csv)
 * :page_facing_up: [Details](twitter/README.md#twitter-data-stream)
+* :notebook_with_decorative_cover: [Dictionary](twitter/dictionaries/twitter_stream_raw_dictionary.csv)
 * :key: Access
     * `Database`: covid19
     * `Schema`: public
     * `Table/View`: twitter_stream
+* :email: Contact: Richard Wen rrwen.dev@gmail.com
