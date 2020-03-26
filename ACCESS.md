@@ -32,7 +32,7 @@ Using an email and password setup, you can experiment with the [Available data](
 2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
 3. Run queries with the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html)
 
-* :email: Please contact Richard Wen rrwen.dev@gmail.com for account setup.
+:email: Please contact Richard Wen rrwen.dev@gmail.com for account setup.
 
 ## Programming Languages
 
