@@ -18,6 +18,13 @@ Get the database connection information [here](ACCESS.md#covid19-database).
 
 ## Available Datasets
 
+A variety of datasets collected and curated by our team are available for COVID-19 project. 
+
+To use or experiment with these data see:
+
+* [pgAdmin4](ACCESS.md#pgadmin4): query the data using a graphical interface
+* [Programming Languages](ACCESS.md#programming-languages): query the data with a standard programming language
+
 ### Twitter Data Stream
 
 Real-time tweets streamed from March 4, 2020 using Shishuo's COVID-19 keywords.
