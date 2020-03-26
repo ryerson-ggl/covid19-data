@@ -1,5 +1,7 @@
 # covid19-data
 
+* :computer: [pgAdmin4](https://geocolab.ryerson.ca/db/pgadmin4)
+
 Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
 
 Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
