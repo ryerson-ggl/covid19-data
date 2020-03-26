@@ -24,8 +24,6 @@ The easiest way to experiment with the data is to use the [Query Tool](https://w
 
 ![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
-Please contact Richard Wen rrwen.dev@gmail.com to setup your account for access.
-
 Using an email and password setup, you can experiment with the [Available data](../README.md#available-data):
 
 1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
