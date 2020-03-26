@@ -36,9 +36,13 @@ Using an email and password setup, you can experiment with the [Available data](
 
 ## Programming Languages
 
-Programming languages have their own interface that allow you to connect to a [PostgreSQL](https://www.postgresql.org/) database using either a package or a library:
+Programming languages have their own interface that allow you to connect to a [PostgreSQL](https://www.postgresql.org/) database using either a package or a library.
+
+To use programming language libraries or packages, you will need our COVID19 database connection details (see [here](#covid19-database)).
+
+Once you have the connection details, you can use any programming language that supports [PostgreSQL](https://www.postgresql.org/) databases, such as:
 
 * **Python**: [pandas Library](https://pandas.pydata.org/docs/) using [read_sql](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql.html?highlight=read#pandas.read_sql)
 * **R**: [RPostgres Package](https://rpostgres.r-dbi.org/) using [dbConnect](https://rpostgres.r-dbi.org/reference/dbconnect-pqdriver-method) and [dbSendQuery](https://rpostgres.r-dbi.org/reference/postgres-query.html)
 
-To use programming language libraries or packages, you will need the [COVID19 Database Connection Details](#covid19-database).
+
