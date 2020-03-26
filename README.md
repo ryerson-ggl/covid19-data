@@ -1,6 +1,6 @@
 # covid19-data
 
-* :computer: [pgAdmin4](https://geocolab.ryerson.ca/db/pgadmin4)
+* :computer: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4)
 
 Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
 
