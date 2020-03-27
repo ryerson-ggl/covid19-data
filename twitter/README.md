@@ -1,6 +1,6 @@
 # covid19-data: Twitter Data
 
-Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com
+* :cloud: [Datasets](../README.md)
 
 Twitter streaming and REST API data collection for the COVID-19 project.
 
