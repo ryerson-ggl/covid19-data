@@ -1,12 +1,15 @@
-# covid19-data: Data Access
+# covid19-data: Database Access Setup
+
+* :cloud: [Available Datasets](README.md#available-datasets)
+* :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
 
 Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com
 
-Data access instructions for the COVID-19 project.
+Database access setup instructions for the COVID-19 project.
 
 ## COVID19 Database
 
-We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our server that can be connected to remotely if you have the following connection details:
+We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our lab server that can be connected to remotely if you have the following connection details:
 
 * **Host**: ip address of the database server
 * **Port**: port of the database server
@@ -18,13 +21,11 @@ We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our se
 
 ## pgAdmin4
 
-* :computer: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4)
-
-The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted GUI [here](https://geocolab.ryerson.ca/db/pgadmin4).
+The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted **Database Interface** at [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4).
 
 ![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
-Using an email and password setup, you can experiment with the [Available data](../README.md#available-data):
+Using an email and password setup, you can experiment with the [available data](README.md#available-data):
 
 1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
 2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
