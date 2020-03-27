@@ -2,6 +2,7 @@
 
 * :hammer_and_wrench: [Database Setup](SETUP.md)
 * :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
+* :books: [Project Resources](https://github.com/orgs/ryerson-ggl/teams/covid19/discussions/7)
 
 Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
 
