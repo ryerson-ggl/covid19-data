@@ -19,7 +19,7 @@ We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our la
 
 :mailbox: Please contact Richard Wen rrwen.dev@gmail.com for connection details.
 
-## pgAdmin4
+## Database Interface
 
 The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted **Database Interface** at [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4).
 
