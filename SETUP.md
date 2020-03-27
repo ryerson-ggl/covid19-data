@@ -27,7 +27,7 @@ The easiest way to experiment with the data is to use the [Query Tool](https://w
 
 ![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
-Using an email and password setup, you can experiment with the [available data](README.md#available-data):
+Using an email and password setup, you can experiment with the [available data](README.md#available-datasets):
 
 1. Create a connection using the [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html)
 2. View the data using the [various pgAdmin4 Tools](https://www.pgadmin.org/docs/pgadmin4/4.19/editgrid.html)
