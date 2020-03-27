@@ -11,10 +11,10 @@ Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
 
 Datasets can be accessed via our lab's `covid19` database:
 
-1. Get your `Database Connection Details` from Richard rrwen.dev@gmail.com (more details [here](ACCESS.md#covid19-database))
+1. Get your `Database Connection Details` from Richard rrwen.dev@gmail.com (more details [here](SETUP.md#covid19-database))
 2. Get your `Database Interface` account setup from Richard
 3. Login to the `Database Interface` [here](https://geocolab.ryerson.ca/db/pgadmin4)
-4. Connect to our database with the [Create Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html#server-dialog) (more details [here](ACCESS.md#database-interface))
+4. Connect to our database with the [Create Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html#server-dialog) (more details [here](SETUP.md#database-interface))
 5. Access the datasets given their `schema` and `table/view` name
 
 **Note**: For some datasets, files may also be available via download links.
