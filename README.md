@@ -1,6 +1,7 @@
 # covid19-data
 
-* :computer: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4)
+* :wrench: [Database Setup](SETUP.md)
+* :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
 
 Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
 
@@ -18,16 +19,11 @@ Data can be accessed via our lab's `covid19` database given the connection infor
 
 Get the database connection information [here](ACCESS.md#covid19-database).
 
-For some datasets, files are also available in which links are made available for download.
+For some datasets, files may also be available via download links.
 
 ## Available Datasets
 
-A variety of datasets collected and curated by our team are available for COVID-19 project. 
-
-To use or experiment with these data see:
-
-* [pgAdmin4](ACCESS.md#pgadmin4): query the data using a graphical interface
-* [Programming Languages](ACCESS.md#programming-languages): query the data with a standard programming language
+A variety of datasets collected and curated by our team are available for COVID-19 project.
 
 ### Twitter Data Stream
 
