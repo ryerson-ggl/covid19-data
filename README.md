@@ -4,8 +4,6 @@
 * :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
 * :books: [Project Resources](https://github.com/orgs/ryerson-ggl/teams/covid19/discussions/7)
 
-Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
-
 Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
 
 ## Quick Start
@@ -34,4 +32,12 @@ Real-time tweets streamed from March 4, 2020 using Shishuo's COVID-19 keywords.
     * `Database`: covid19
     * `Schema`: public
     * `Table/View`: twitter_stream
-* :email: Contact: Richard Wen rrwen.dev@gmail.com
+* :mailbox: Contact: Richard Wen rrwen.dev@gmail.com
+
+## Contact
+
+| Name        | Email                  | Description                             |
+|-------------|------------------------|-----------------------------------------|
+| Richard Wen | rwen@ryerson.ca        | Twitter data stream, database setup     |
+| Shishuo Xu  | shishu.xu@ryerson.ca   | COVID-19 reports and general statistics |
+| Wei Huang   | huangweibuct@gmail.com | Twitter API access keys                 |
