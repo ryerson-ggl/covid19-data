@@ -21,7 +21,9 @@ We have a `covid19` [PostgreSQL](https://www.postgresql.org/) database on our la
 
 ## Database Interface
 
-The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted **Database Interface** at [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4).
+The easiest way to experiment with the data is to use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) from [pgAdmin4](https://www.pgadmin.org/) on our self-hosted **Database Interface** at: 
+
+:link: [geocolab.ryerson.ca/db/pgadmin4](https://geocolab.ryerson.ca/db/pgadmin4).
 
 ![Example of pgAdmin4 Interface](img/pgadmin4_example.png)
 
