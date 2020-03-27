@@ -1,6 +1,7 @@
 # covid19-data: Twitter Data Setup
 
-Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com  
+* :page_facing_up: [Details](twitter/README.md#twitter-data-stream)
+* :notebook_with_decorative_cover: [Dictionary](twitter/dictionaries/twitter_stream_raw_dictionary.csv) 
   
 Instructions for installing the required software to collect Twitter data for the COVID-19 project.
 
