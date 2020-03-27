@@ -1,6 +1,6 @@
 # covid19-data
 
-* :wrench: [Database Setup](SETUP.md)
+* :hammer_and_wrench: [Database Setup](SETUP.md)
 * :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
 
 Shishuo Xu shishuo.xu@ryerson.ca, Richard Wen rrwen.dev@gmail.com
