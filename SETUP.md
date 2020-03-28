@@ -1,6 +1,6 @@
 # covid19-data: Database Access Setup
 
-* :arrow_left: [Back to Data Overview](README.md)
+* :arrow_left: [Back to Data Overview](README.md#covid19-data)
 
 Database access setup instructions for the COVID-19 project.
 
