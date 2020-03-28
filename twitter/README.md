@@ -4,9 +4,8 @@ Twitter streaming and REST API data collection for the COVID-19 project.
 
 ## Twitter Data Stream
 
-* :page_facing_up: [Overview](../README.md#twitter-data-stream)
 * :notebook_with_decorative_cover: [Dictionary](dictionaries/twitter_stream_raw_dictionary.csv)
-* :wrench: [Setup](SETUP.md#twitter-data-stream-service)
+* :hammer_and_wrench: [Setup](SETUP.md#twitter-data-stream-service)
 
 The twitter data stream collects real-time tweets based on a set of keywords and stores them into a PostgreSQL database.
 
@@ -22,7 +21,7 @@ We are collecting tweets with the [Standard Twitter Filter API](https://develope
     * 1 filter rule on one allowed connection
     * Disconnection required to adjust rule
 
-### See Also
+### Twitter Data Stream References
 
 * [API Stream Parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters): details on streaming parameters
 * [API Keyword Operators](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators): details on filter behaviour of standard keyword queries, useful for refining `track` parameter
