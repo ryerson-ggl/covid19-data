@@ -1,8 +1,5 @@
 # covid19-data: Database Access Setup
 
-* :cloud: [Available Datasets](README.md#available-datasets)
-* :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
-
 Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com
 
 Database access setup instructions for the COVID-19 project.
