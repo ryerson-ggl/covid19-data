@@ -1,7 +1,6 @@
 # covid19-data: Twitter Data Setup
 
-* :page_facing_up: [Details](README.md#twitter-data-stream)
-* :notebook_with_decorative_cover: [Dictionary](dictionaries/twitter_stream_raw_dictionary.csv) 
+* :page_facing_up: [Back to Details](README.md#twitter-data-stream)
   
 Instructions for installing the required software to collect Twitter data for the COVID-19 project.
 
