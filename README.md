@@ -1,6 +1,6 @@
 # covid19-data
 
-* :hammer_and_wrench: [Database Setup](SETUP.md)
+* :hammer_and_wrench: [Database Setup](SETUP.md#covid19-database)
 * :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
 * :books: [Project Resources](https://github.com/orgs/ryerson-ggl/teams/covid19/discussions/7)
 
