@@ -1,7 +1,5 @@
 # covid19-data: Twitter Data
 
-* :cloud: [Datasets](../README.md#available-datasets)
-
 Twitter streaming and REST API data collection for the COVID-19 project.
 
 ## Twitter Data Stream
