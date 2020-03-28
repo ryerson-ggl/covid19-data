@@ -1,10 +1,10 @@
 # covid19-data: Twitter Data Setup
-
-* :page_facing_up: [Back to Details](README.md#twitter-data-stream)
   
 Instructions for installing the required software to collect Twitter data for the COVID-19 project.
 
 ## Twitter Data Stream Service
+
+* :arrow_left: [Back to Details](README.md#twitter-data-stream)
 
 The Twitter data stream will insert real-time COVID-19 related tweets filtered by keywords into a PostgreSQL database table.
 
