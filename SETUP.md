@@ -1,6 +1,6 @@
 # covid19-data: Database Access Setup
 
-Richard Wen rrwen.dev@gmail.com, Shishuo Xu shishuo.xu@ryerson.ca, Wei Huang huangweibuct@gmail.com
+* :arrow_left: [Back to Data Overview](README.md)
 
 Database access setup instructions for the COVID-19 project.
 
