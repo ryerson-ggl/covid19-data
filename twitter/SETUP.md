@@ -60,7 +60,9 @@ In the `Application` tab, apply the following settings:
 
 * Set the `Path` to your node installation
 * Set the `Startup Directory` to the `covid19-data` folder
-* Set the `Arguments` the `twitter/stream.js` file with forward slashes `/`
+* Set the `Arguments` to:
+    * `--max-old-space-size=4096` followed by a space (this sets the memory limit for node)
+    * Followed by `twitter/stream.js` file with forward slashes `/`
 
 ![Example of Application settings](img/nssm_application.PNG)
 
