@@ -24,7 +24,7 @@ A variety of datasets collected and curated by our team are available for COVID-
 
 ### Twitter Data Stream
 
-Real-time tweets streamed from March 4, 2020 using Shishuo's COVID-19 keywords.
+Real-time tweets streamed from March 4, 2020 using Shishuo and Wei's COVID-19 keywords.
 
 * :page_facing_up: [Details](twitter/README.md#twitter-data-stream)
 * :notebook_with_decorative_cover: [Dictionary](twitter/dictionaries/twitter_stream_raw_dictionary.csv)
