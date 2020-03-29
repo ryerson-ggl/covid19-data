@@ -14,7 +14,9 @@ We are collecting tweets with the [Standard Twitter Filter API](https://develope
 
 * **Start Date**: March 4, 2020
 * **End Date**: Ongoing
-* **Keywords**: coronavirus, covid19, coronavirusoutbreak, 2019ncov, ncov2019, #Coronavirus, #COVID19, #coronavirusoutbreak, #2019nCov, #nCov2019,socialdistancing, social distancing, #socialdistancing
+* **Keywords**: 
+    * **March 4, 2020 to March 29, 2020**: coronavirus, covid19, coronavirusoutbreak, 2019ncov, ncov2019, #Coronavirus, #COVID19, #coronavirusoutbreak, #2019nCov, #nCov2019, socialdistancing, social distancing, #socialdistancing
+    * **March 29 to Current**: coronavirus, covid19, coronavirusoutbreak, 2019ncov, ncov2019, #Coronavirus, #COVID19, #coronavirusoutbreak, #2019nCov, #nCov2019, socialdistancing, social distancing, #socialdistancing, #physicaldistancing, physical distancing, #stayinsideyourbubble, #stayhomesaveslives
 * **Limitations**
     * 400 keywords
     * 5,000 userid
