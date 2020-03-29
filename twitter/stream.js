@@ -67,7 +67,7 @@ options.pg.connection = {
 options.twitter.method = 'stream'; // get, post, or stream
 options.twitter.path = 'statuses/filter'; // api path
 options.twitter.params = {
-	track: 'coronavirus,covid19,coronavirusoutbreak,2019ncov,ncov2019,#Coronavirus,#COVID19,#coronavirusoutbreak,#2019nCov,#nCov2019,socialdistancing,social distancing,#socialdistancing,#physicaldistancing,physical distancing,#stayinsideyourbubble,#stayhomesaveslives'
+	track: 'coronavirus,covid19,coronavirusoutbreak,2019ncov,ncov2019,#Coronavirus,#COVID19,#coronavirusoutbreak,#2019nCov,#nCov2019,socialdistancing,social distancing,#socialdistancing,#physicaldistancing,physical distancing,#stayinsideyourbubble,#stayhomesaveslives,#stayhomesavelives'
 };
 
 // (options_pg) PostgreSQL options
