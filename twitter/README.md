@@ -32,3 +32,4 @@ We are collecting tweets with the [Standard Twitter Filter API](https://develope
 * [User Data Dictionary](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object): descriptions of returned user object fields
 * [Geo Data Dictionary](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/geo-objects): descriptions of returned geo object fields
 * [Connection Rules](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/connecting): details on rate limits and connection behaviour/rules
+* [Message Types](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview/statuses-filter): details on message types returned during events such as rate limits, errors, or disconnections
