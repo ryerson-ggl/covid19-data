@@ -1,5 +1,5 @@
 require('log-timestamp');
-var myVar = setInterval(TweetsQuery, 1000000)
+var myVar = setInterval(TweetsQuery, 1000000);
 function TweetsQuery() {
 var twitter2pg = require('twitter2pg');
 require('dotenv').config();
@@ -15,8 +15,7 @@ var options = {
 // (options_pg_connection) PostgreSQL connection details
 options.pg.connection = {
 	port: 5432,
-	database: 'covid19',
-	user: 'postgres'
+	database: 'covid19'
 };
 
 // *** SEARCH TWEETS ***
@@ -28,7 +27,7 @@ options.twitter.path = 'search/tweets'; // api path
 options.twitter.params = {q: 'coronavirus,#Coronavirus,#COVID19,#coronavirusoutbreak,#2019nCov,#nCov2019','count': 100}; // query tweets
 
 // Worldwide - (options_pg) PostgreSQL options
-options.pg.table = 'twitter_query';
+options.pg.table = 'twitter_stream_raw';
 options.pg.column = 'tweet';
 options.pg.query = 'INSERT INTO $options.pg.table($options.pg.column) SELECT * FROM json_array_elements($1);';
 

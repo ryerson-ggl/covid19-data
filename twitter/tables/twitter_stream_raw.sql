@@ -28,7 +28,7 @@ RETURNS geometry AS 'SELECT ST_GeomFromGeoJSON($1)::geometry' LANGUAGE SQL immut
 CREATE OR REPLACE FUNCTION get_tweet_tsvector(text)
 RETURNS tsvector AS 'SELECT to_tsvector(''english'', $1)' LANGUAGE SQL immutable RETURNS NULL ON NULL INPUT;
 
-CREATE TABLE twitter_stream_raw (
+CREATE TABLE IF NOT EXISTS twitter_stream_raw (
 	row_id SERIAL PRIMARY KEY,
 	tweet jsonb,
 	tweet_id numeric GENERATED ALWAYS AS ((tweet ->> 'id_str')::numeric) STORED,
@@ -40,7 +40,7 @@ CREATE TABLE twitter_stream_raw (
 	tweet_hour smallint GENERATED ALWAYS AS (get_tweet_hour((tweet ->> 'created_at')::text)) STORED,
 	tweet_minute smallint GENERATED ALWAYS AS (get_tweet_minute((tweet ->> 'created_at')::text)) STORED,
 	tweet_second smallint GENERATED ALWAYS AS (get_tweet_second((tweet ->> 'created_at')::text)) STORED,
-	is_tweet boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'id')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
+	is_tweet boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'id_str')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
 	is_retweet boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'retweeted_status')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
 	has_coordinates boolean GENERATED ALWAYS AS ((CASE WHEN (tweet -> 'coordinates' ->> 'coordinates')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
 	has_place boolean GENERATED ALWAYS AS ((CASE WHEN (tweet ->> 'place')::text is NOT NULL THEN true ELSE false END)::boolean) STORED,
@@ -99,26 +99,66 @@ CREATE TABLE twitter_stream_raw (
 	retweet_user_id numeric GENERATED ALWAYS AS ((tweet -> 'retweeted_status' -> 'user' ->> 'id_str')::numeric) STORED
 );
 
-CREATE INDEX tweet_id_index ON twitter_stream_raw (tweet_id);
-CREATE INDEX tweet_timestamp_index ON twitter_stream_raw (tweet_timestamp);
-CREATE INDEX tweet_dayofweek_index ON twitter_stream_raw (tweet_dayofweek);
-CREATE INDEX tweet_language_index ON twitter_stream_raw (tweet_language);
-CREATE INDEX tweet_country_code_index ON twitter_stream_raw (tweet_country_code);
-CREATE INDEX tweets_favourites_index ON twitter_stream_raw (tweet_favourites);
-CREATE INDEX tweet_retweets_index ON twitter_stream_raw (tweet_retweets);
-CREATE INDEX tweet_text_tsvector_index ON twitter_stream_raw USING GIN(tweet_text_tsvector);
-CREATE INDEX tweet_place_type_index ON twitter_stream_raw(tweet_place_type);
-CREATE INDEX tweet_has_coordinates_index ON twitter_stream_raw (has_coordinates) WHERE has_coordinates;
-CREATE INDEX tweet_is_tweet_index ON twitter_stream_raw (is_tweet) WHERE is_tweet;
-CREATE INDEX tweet_is_retweet_index ON twitter_stream_raw (is_retweet) WHERE is_retweet;
-CREATE INDEX tweet_has_place_index ON twitter_stream_raw (has_place) WHERE has_place;
-CREATE INDEX tweet_geometry_index ON twitter_stream_raw USING GIST(tweet_geometry);
-CREATE INDEX tweet_place_geometry_index ON twitter_stream_raw USING GIST(tweet_place_geometry);
+CREATE INDEX IF NOT EXISTS tweet_id_index ON twitter_stream_raw (tweet_id);
+CREATE INDEX IF NOT EXISTS tweet_timestamp_index ON twitter_stream_raw (tweet_timestamp);
+CREATE INDEX IF NOT EXISTS tweet_dayofweek_index ON twitter_stream_raw (tweet_dayofweek);
+CREATE INDEX IF NOT EXISTS tweet_language_index ON twitter_stream_raw (tweet_language);
+CREATE INDEX IF NOT EXISTS tweet_country_code_index ON twitter_stream_raw (tweet_country_code);
+CREATE INDEX IF NOT EXISTS tweets_favourites_index ON twitter_stream_raw (tweet_favourites);
+CREATE INDEX IF NOT EXISTS tweet_retweets_index ON twitter_stream_raw (tweet_retweets);
+CREATE INDEX IF NOT EXISTS tweet_text_tsvector_index ON twitter_stream_raw USING GIN(tweet_text_tsvector);
+CREATE INDEX IF NOT EXISTS tweet_place_type_index ON twitter_stream_raw(tweet_place_type);
+CREATE INDEX IF NOT EXISTS tweet_has_coordinates_index ON twitter_stream_raw (has_coordinates) WHERE has_coordinates;
+CREATE INDEX IF NOT EXISTS tweet_is_tweet_index ON twitter_stream_raw (is_tweet) WHERE is_tweet;
+CREATE INDEX IF NOT EXISTS tweet_is_retweet_index ON twitter_stream_raw (is_retweet) WHERE is_retweet;
+CREATE INDEX IF NOT EXISTS tweet_has_place_index ON twitter_stream_raw (has_place) WHERE has_place;
+CREATE INDEX IF NOT EXISTS tweet_geometry_index ON twitter_stream_raw USING GIST(tweet_geometry);
+CREATE INDEX IF NOT EXISTS tweet_place_geometry_index ON twitter_stream_raw USING GIST(tweet_place_geometry);
 
-CREATE INDEX user_id_index ON twitter_stream_raw (user_id);
-CREATE INDEX user_is_verified_index ON twitter_stream_raw (user_is_verified) WHERE user_is_verified;
-CREATE INDEX user_create_timestamp ON twitter_stream_raw (user_create_timestamp);
-CREATE INDEX user_has_place_index ON twitter_stream_raw (user_has_place) WHERE user_has_place;
-CREATE INDEX user_friends_index ON twitter_stream_raw (user_friends);
-CREATE INDEX user_followers_index ON twitter_stream_raw (user_followers);
-CREATE INDEX user_tweets_index ON twitter_stream_raw (user_tweets);
+CREATE INDEX IF NOT EXISTS user_id_index ON twitter_stream_raw (user_id);
+CREATE INDEX IF NOT EXISTS user_is_verified_index ON twitter_stream_raw (user_is_verified) WHERE user_is_verified;
+CREATE INDEX IF NOT EXISTS user_create_timestamp ON twitter_stream_raw (user_create_timestamp);
+CREATE INDEX IF NOT EXISTS user_has_place_index ON twitter_stream_raw (user_has_place) WHERE user_has_place;
+CREATE INDEX IF NOT EXISTS user_friends_index ON twitter_stream_raw (user_friends);
+CREATE INDEX IF NOT EXISTS user_followers_index ON twitter_stream_raw (user_followers);
+CREATE INDEX IF NOT EXISTS user_tweets_index ON twitter_stream_raw (user_tweets);
+
+CREATE TABLE IF NOT EXISTS twitter_stream_raw_misc
+(CHECK (NOT is_tweet))
+INHERITS (twitter_stream_raw);
+
+CREATE OR REPLACE FUNCTION partition_twitter_stream_raw()
+RETURNS TRIGGER AS $$
+DECLARE
+	partition_date TEXT;
+	partition_name TEXT;
+	day_start TEXT;
+	day_end TEXT;
+BEGIN
+	partition_date := to_char((NEW.tweet ->> 'created_at')::timestamptz,'YYYY_MM_DD');
+ 	partition_name := 'twitter_stream_raw_' || partition_date;
+	day_start := to_char((NEW.tweet ->> 'created_at')::timestamptz,'YYYY-MM-DD');
+	day_end := to_char((NEW.tweet ->> 'created_at')::timestamptz + interval '1 day', 'YYYY-MM-DD');
+IF NOT EXISTS
+	(SELECT 1
+   	 FROM information_schema.tables 
+   	 WHERE table_name = partition_name) AND (NEW.tweet ->> 'id_str') IS NOT NULL
+THEN
+	RAISE NOTICE 'A partition has been created %', partition_name;
+	EXECUTE format(E'CREATE TABLE %I (CHECK ( date_trunc(\'day\', tweet_timestamp) >= ''%s'' AND date_trunc(\'day\', tweet_timestamp) < ''%s'')) INHERITS (twitter_stream_raw)', partition_name, day_start, day_end);
+END IF;
+IF (NEW.tweet ->> 'id_str') IS NOT NULL THEN
+	EXECUTE format('INSERT INTO %I (tweet) VALUES($1)', partition_name) using NEW.tweet;
+ELSE
+	EXECUTE format('INSERT INTO twitter_stream_raw_misc (tweet) VALUES($1)', partition_name) using NEW.tweet;
+END IF;
+RETURN NULL;
+END
+$$
+LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS insert_twitter_stream_raw on twitter_stream_raw;
+CREATE TRIGGER insert_twitter_stream_raw
+    BEFORE INSERT ON twitter_stream_raw
+    FOR EACH ROW EXECUTE PROCEDURE partition_twitter_stream_raw();
+	
