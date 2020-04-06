@@ -1,22 +1,11 @@
 # covid19-data
 
-* :hammer_and_wrench: [Database Setup](SETUP.md#covid19-database)
-* :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
-* :books: [Project Resources](https://github.com/orgs/ryerson-ggl/teams/covid19/discussions/7)
-
 Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
 
 ## Quick Start
 
-Datasets can be accessed via our lab's `covid19` database:
-
-1. Get your *database connection details* from Richard rrwen.dev@gmail.com (more details [here](SETUP.md#covid19-database))
-2. Get your *database interface account* setup from Richard (more details [here](SETUP.md#database-interface))
-3. Login to the :computer: [Database Interface](https://geocolab.ryerson.ca/db/pgadmin4)
-4. Connect to our database with the [Create Server Dialog](https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html#server-dialog) and use the [Query Tool](https://www.pgadmin.org/docs/pgadmin4/latest/query_tool.html) (example [here](SETUP.md#database-interface))
-5. Access the datasets given their `schema` and `table/view` name
-
-**Note**: For some datasets, files may also be available via download links.
+1. For GGL researchers, datasets can be accessed through our [COVID-19 database](https://github.com/ryerson-ggl/covid19-database)
+2. For open access, download links may be available for some datasets
 
 ## Available Datasets
 
@@ -36,8 +25,10 @@ Real-time tweets streamed from March 4, 2020 using Shishuo and Wei's COVID-19 ke
 
 ## Contact
 
-| Name        | Email                  | Description                             |
-|-------------|------------------------|-----------------------------------------|
-| Richard Wen | rwen@ryerson.ca        | Twitter data stream, database setup     |
-| Shishuo Xu  | shishu.xu@ryerson.ca   | COVID-19 reports and general statistics |
-| Wei Huang   | huangweibuct@gmail.com | Twitter API access keys                 |
+| Name                        | Email                  | Description                             |
+|-----------------------------|------------------------|-----------------------------------------|
+| Richard Wen, PhD Candidate  | rwen@ryerson.ca        | Primary contact                         |
+| Shishuo Xu, PhD             | shishu.xu@ryerson.ca   | Data specific                           |
+| Wei Huang, PhD              | huangweibuct@gmail.com | Project Lead, Data specific             |
+| Siyuan Liu, MSc             | siyuan.liu@ryerson.ca  | Data specific                           |
+| Songnian Li, Professor      | snli@ryerson.ca        | Supervisor                              |
