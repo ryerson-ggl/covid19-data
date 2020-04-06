@@ -1,6 +1,6 @@
 # covid19-data
 
-Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
+A collection of 2019 Corona Virus Disease (COVID-19) data cureated by our team from multiple sources.
 
 ## Quick Start
 
@@ -8,8 +8,6 @@ Collection of 2019 Corona Virus Disease (COVID-19) data from multiple sources.
 2. For open access, download links may be available for some datasets
 
 ## Available Datasets
-
-A variety of datasets collected and curated by our team are available for COVID-19 project.
 
 ### Twitter Data Stream
 
