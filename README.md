@@ -1,6 +1,6 @@
 # covid19-data
 
-A collection of 2019 Corona Virus Disease (COVID-19) data cureated by our team from multiple sources.
+A collection of 2019 Corona Virus Disease (COVID-19) data curated by our team from multiple sources.
 
 ## Quick Start
 
