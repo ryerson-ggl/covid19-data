@@ -4,8 +4,6 @@ Instructions for installing the required software to collect Twitter data for th
 
 ## Twitter Data Stream Service
 
-* :arrow_left: [Back to Details](README.md#twitter-data-stream)
-
 The Twitter data stream will insert real-time COVID-19 related tweets filtered by keywords into a PostgreSQL database table.
 
 * **Running on**: GGL-WORKSTATION
