@@ -4,7 +4,6 @@ Twitter streaming and REST API data collection for the COVID-19 project.
 
 ## Twitter Data Stream
 
-* :arrow_left: [Back to Overview](../README.md#twitter-data-stream)
 * :notebook_with_decorative_cover: [Dictionary](dictionaries/twitter_stream_raw_dictionary.csv)
 * :hammer_and_wrench: [Setup](SETUP.md#twitter-data-stream-service)
 
