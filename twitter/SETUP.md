@@ -7,9 +7,7 @@ Instructions for installing the required software to collect Twitter data for th
 The Twitter data stream will insert real-time COVID-19 related tweets filtered by keywords into a PostgreSQL database table.
 
 * **Running on**: GGL-WORKSTATION
-* **Database computer**: GGL-SERVER
-
-Access via TeamViewer and pgadmin4 on the GGL-WORKSTATION.  
+* **Database computer**: GGL-SERVER 
   
 To install the Twitter data stream service, follow the instructions below.
 
@@ -18,13 +16,19 @@ To install the Twitter data stream service, follow the instructions below.
 To collect streaming data from Twitter, we need to install the following:
 
 1. Install [Node.js](https://nodejs.org/en/)
-2. Install the [PostgreSQL Database](https://www.postgresql.org/)
+2. Install the [PostgreSQL 12+ Database](https://www.postgresql.org/) or use the [GGL COVID-19 Database](https://github.com/ryerson-ggl/covid19-database)
 3. Install the required `node` packages with `npm`
-4. Create PostgreSQL database called `covid19`
-5. Create a table in the database called `twitter_stream_raw` using the [twitter_stream_raw.sql](tables/twitter_stream_raw.sql) with [psql](https://www.postgresql.org/docs/current/app-psql.html) or [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html)
+4. Create PostgreSQL database called `covid19` if it does not exist
+5. Create a table in the database called `twitter_stream_raw` using the [twitter_stream_raw.sql](tables/twitter_stream_raw.sql) with [psql](https://www.postgresql.org/docs/current/app-psql.html) or [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html) replacing the following:
+  * `<USER>` with your database user name
+  * `<HOST>` with the host address of the database
+  * `<PORT>` with the port of the database
 
 ```
+git clone https://github.com/ryerson-ggl/covid19-data
 npm install
+psql -h host -U username -d myDataBase -a -f myInsertFile
+psql -h <HOST> -U <USER> -p <PORT> -d covid19 -a -f tables/twitter_stream_raw.sql
 ```
 
 **Note**: Ensure you are in the `covid19-data` folder 
@@ -134,7 +138,7 @@ bin\nssm edit covid19_twitter_stream
 
 A log is created at `twitter/logs/stream.log`.
 
-### 5. Create User Views from twiter_stream_raw
+### 5. Create User Views from twitter_stream_raw
 
 The `twitter_stream_raw` table contains a mix of tweet JSON objects and any message objects returned from the Twitter streaming API.  
   
@@ -143,5 +147,9 @@ This means that the table needs to be cleaned into a tabular format for any real
 A set of SQL files for database views are available to create more clean versions of the `twitter_stream_raw` table, which can be run in [psql](https://www.postgresql.org/docs/current/app-psql.html) or through the [pgadmin4 Query Tool](https://www.pgadmin.org/docs/pgadmin4/development/query_tool.html):
 
 * [twitter_stream.sql](views/twitter_stream.sql): view of only tweets and retweets from `twitter_stream_raw`
+
+```
+psql -h <HOST> -U <USER> -p <PORT> -d covid19 -a -f views/twitter_stream.sql
+```
 
 These views are kept updated as the stream adds in new data, and provides you with the latest up-to-date at the time you run a query against these views.
