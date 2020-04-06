@@ -27,7 +27,6 @@ To collect streaming data from Twitter, we need to install the following:
 ```
 git clone https://github.com/ryerson-ggl/covid19-data
 npm install
-psql -h host -U username -d myDataBase -a -f myInsertFile
 psql -h <HOST> -U <USER> -p <PORT> -d covid19 -a -f tables/twitter_stream_raw.sql
 ```
 
