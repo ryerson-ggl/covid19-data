@@ -4,8 +4,8 @@ A collection of 2019 Corona Virus Disease (COVID-19) data curated by our team fr
 
 ## Quick Start
 
-1. For GGL researchers, datasets can be accessed through our [COVID-19 database](https://github.com/ryerson-ggl/covid19-database)
-2. For open access, download links may be available for some datasets
+1. For GGL researchers, datasets can be accessed through our [COVID-19 database](https://github.com/ryerson-ggl/covid19-database#quick-start)
+2. For open access and the public, download links may be available for some datasets
 
 ## Available Datasets
 
