@@ -27,6 +27,6 @@ Real-time tweets streamed from March 4, 2020 using Shishuo and Wei's COVID-19 ke
 |-----------------------------|------------------------|-----------------------------------------|
 | Richard Wen, PhD Candidate  | rwen@ryerson.ca        | Primary contact                         |
 | Shishuo Xu, PhD             | shishu.xu@ryerson.ca   | Data specific                           |
-| Wei Huang, PhD              | huangweibuct@gmail.com | Project Lead, Data specific             |
+| Wei Huang, PhD              | huangweibuct@gmail.com | Data specific                           |
 | Siyuan Liu, MSc             | siyuan.liu@ryerson.ca  | Data specific                           |
 | Songnian Li, Professor      | snli@ryerson.ca        | Supervisor                              |
