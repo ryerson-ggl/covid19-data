@@ -4,7 +4,7 @@ A collection of 2019 Corona Virus Disease (COVID-19) data curated by our team fr
 
 ## Quick Start
 
-1. For GGL researchers, datasets can be accessed through our [COVID-19 database](https://github.com/ryerson-ggl/covid19-database#quick-start)
+1. For GGL researchers, database access is available through our [COVID-19 database](https://github.com/ryerson-ggl/covid19-database#quick-start)
 2. For open access and the public, download links may be available for some datasets
 
 ## Available Datasets
@@ -15,7 +15,7 @@ Real-time tweets streamed from March 4, 2020 using Shishuo and Wei's COVID-19 ke
 
 * :page_facing_up: [Details](https://github.com/ryerson-ggl/covid19-data-twitter)
 * :notebook_with_decorative_cover: [Dictionary](https://github.com/ryerson-ggl/covid19-data-twitter/blob/master/dictionaries/twitter_stream_raw_dictionary.csv)
-* :key: Access
+* :key: Database Access
     * `Database`: covid19
     * `Schema`: public
     * `Table`: twitter_stream_raw
@@ -27,7 +27,7 @@ Original tweets extracted in real-time from the [Twitter Raw Data Stream](#twitt
 
 * :page_facing_up: [Details](https://github.com/ryerson-ggl/covid19-data-twitter)
 * :notebook_with_decorative_cover: [Dictionary](https://github.com/ryerson-ggl/covid19-data-twitter/blob/master/dictionaries/twitter_stream_original_dictionary.csv)
-* :key: Access
+* :key: Database Access
     * `Database`: covid19
     * `Schema`: public
     * `Table`: twitter_stream_original
