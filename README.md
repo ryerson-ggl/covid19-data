@@ -9,7 +9,7 @@ A collection of 2019 Corona Virus Disease (COVID-19) data curated by our team fr
 
 ## Available Datasets
 
-### Twitter Data Stream
+### Twitter Raw Data Stream
 
 Real-time tweets streamed from March 4, 2020 using Shishuo and Wei's COVID-19 keywords.
 
@@ -18,7 +18,19 @@ Real-time tweets streamed from March 4, 2020 using Shishuo and Wei's COVID-19 ke
 * :key: Access
     * `Database`: covid19
     * `Schema`: public
-    * `Table/View`: twitter_stream
+    * `Table`: twitter_stream_raw
+* :mailbox: Contact: Richard Wen rrwen.dev@gmail.com
+
+### Twitter Original Tweets Stream
+
+Original tweets extracted in real-time from the [Twitter Raw Data Stream](#twitter-raw-data-stream).
+
+* :page_facing_up: [Details](https://github.com/ryerson-ggl/covid19-data-twitter)
+* :notebook_with_decorative_cover: [Dictionary](https://github.com/ryerson-ggl/covid19-data-twitter/blob/master/dictionaries/twitter_stream_original_dictionary.csv)
+* :key: Access
+    * `Database`: covid19
+    * `Schema`: public
+    * `Table`: twitter_stream_original
 * :mailbox: Contact: Richard Wen rrwen.dev@gmail.com
 
 ## Contact
